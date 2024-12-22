@@ -19,7 +19,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding-top: 50px; /* Espaçamento superior */
+            padding-top: 50px;
         }
 
         h1 {
@@ -34,6 +34,7 @@
         .invitation-text {
             font-size: 24px;
             margin-top: 30px;
+            text-align: center;
         }
 
         /* Botão de aceite */
@@ -48,6 +49,7 @@
             text-decoration: none;
             display: inline-block;
             margin-top: 20px;
+            transition: background-color 0.3s ease;
         }
 
         .button:hover {
@@ -56,7 +58,7 @@
 
         /* Segunda parte do convite ("Vale Tarde") */
         #vale-tarde {
-            margin-top: 100vh; /* Começa oculta */
+            display: none; /* Inicialmente escondido */
             background-color: #fff;
             color: #d81b60;
             padding: 30px;
@@ -65,18 +67,17 @@
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
-            animation: fadeIn 1s ease-out;
-            position: relative;
-            overflow: hidden;
-            padding-bottom: 50px;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
         }
 
         @keyframes fadeIn {
-            0% {
+            from {
                 opacity: 0;
                 transform: translateY(30px);
             }
-            100% {
+            to {
                 opacity: 1;
                 transform: translateY(0);
             }
@@ -96,67 +97,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Estilo para o coração flutuante */
-        .heart {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background-color: #f50057;
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-            animation: float 5s infinite;
-            opacity: 0.8;
-            transform-origin: center;
-        }
-
-        .heart:before, .heart:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: inherit;
-        }
-
-        .heart:before {
-            left: -25px;
-        }
-
-        .heart:after {
-            right: -25px;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.8;
-            }
-            50% {
-                transform: translate(-50px, -100px) scale(1.5);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(100px, -200px) scale(1);
-                opacity: 0.8;
-            }
-        }
-
-        .heart:nth-child(odd) {
-            background-color: #ec407a;
-        }
-
-        .heart:nth-child(even) {
-            background-color: #ff4081;
-        }
-
-        .heart:nth-child(3n) {
-            background-color: #f06292;
-        }
-
         /* Responsividade para telas pequenas */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .invitation-text {
@@ -170,14 +114,11 @@
 
             /* Ajustando a imagem para telas pequenas */
             .image-container img {
-                width: 100%; /* Fazendo a imagem ocupar 100% da largura disponível */
-                max-width: 300px; /* Limita o tamanho máximo da imagem */
-                height: auto;
+                max-width: 300px;
                 border-radius: 10px;
             }
         }
 
-        /* Responsividade para telas muito pequenas (como celulares em modo retrato) */
         @media (max-width: 480px) {
             .invitation-text {
                 font-size: 18px;
@@ -193,24 +134,24 @@
 <body>
     <!-- Parte inicial do convite -->
     <div class="content">
-        <h1>Convite Especial</h1>
-        <p class="invitation-text">Querida Laíza,</p>
+        <h1>Convite Especial &#9829;</h1>
+        <p class="invitation-text">Olá meu amor &#x2764;,</p>
         <p class="invitation-text">Tenho algo muito especial para te propor...</p>
-        <p class="invitation-text">Que tal uma tarde romântica? Só nós dois, em um lugar especial.</p>
-        <p class="invitation-text">Você aceita esse convite?</p>
+        <p class="invitation-text">Que tal uma tarde romântica? Só nós dois, em um lugar especial. &#9825;</p>
+        <p class="invitation-text">Você aceita esse convite? &#9829;</p>
         
-        <!-- Botão que faz a tela rolar para a segunda parte do convite -->
-        <a href="#vale-tarde" class="button">Clique aqui para aceitar!</a>
+        <!-- Botão que exibe a segunda parte do convite -->
+        <button class="button" onclick="showValeTarde()">Clique aqui para aceitar! &#10084;</button>
     </div>
 
     <!-- Parte 2 do convite: "Vale Tarde" -->
     <div id="vale-tarde">
-        <h1>Você Ganhou um Vale Tarde!</h1>
-        <p class="invitation-text">Você tem direito a uma tarde repleta de carinho e romance, com momentos que você sempre quis viver...</p>
-        <p class="invitation-text">De carinhos e beijos até o prazer de explorar tudo o que nossa conexão pode nos proporcionar.</p>
-        <p class="invitation-text">Esta tarde será toda sua... Você só precisa dizer o que deseja!</p>
+        <h1>Você Ganhou um Vale Tarde! &#9829;</h1>
+        <p class="invitation-text">Você tem direito a uma tarde repleta de carinho e romance, com momentos que você sempre quis viver... &#x2764;</p>
+        <p class="invitation-text">De carinhos e beijos até o prazer de explorar tudo o que nossa conexão pode nos proporcionar. &#9825;</p>
+        <p class="invitation-text">Esta tarde será toda sua... Você só precisa dizer o que deseja! &#10084;</p>
         
-        <p class="invitation-text">Só falta você assinar o nosso contrato de prazer e amor. Estamos prontos para começar!</p>
+        <p class="invitation-text">Só falta você assinar o nosso contrato de prazer e amor. Estamos prontos para começar! &#9829;</p>
 
         <!-- Imagem da parte "Vale Tarde" -->
         <div class="image-container">
@@ -218,16 +159,19 @@
         </div>
     </div>
 
-    <!-- Corações flutuantes -->
-    <div class="hearts">
-        <div class="heart" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
-        <div class="heart" style="top: 30%; left: 40%; animation-delay: 1s;"></div>
-        <div class="heart" style="top: 50%; left: 60%; animation-delay: 2s;"></div>
-        <div class="heart" style="top: 70%; left: 80%; animation-delay: 1.5s;"></div>
-        <div class="heart" style="top: 90%; left: 30%; animation-delay: 0.5s;"></div>
-        <div class="heart" style="top: 60%; left: 10%; animation-delay: 0.8s;"></div>
-        <div class="heart" style="top: 20%; left: 70%; animation-delay: 1.2s;"></div>
-        <div class="heart" style="top: 40%; left: 50%; animation-delay: 2.5s;"></div>
-    </div>
+    <script>
+        /**
+         * Função para exibir a segunda parte do convite e rolar a página suavemente
+         */
+        function showValeTarde() {
+            const valeTarde = document.getElementById("vale-tarde");
+
+            // Exibir o conteúdo e aplicar animação de fade-in
+            valeTarde.style.display = "block";
+
+            // Rolar suavemente para a seção
+            valeTarde.scrollIntoView({ behavior: "smooth" });
+        }
+    </script>
 </body>
 </html>
