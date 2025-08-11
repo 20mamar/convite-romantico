@@ -1,177 +1,121 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Convite Romântico</title>
-    <style>
-        /* Estilo para o corpo da página */
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(45deg, #f8bbd0, #fff);
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            color: #d81b60;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding-top: 50px;
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #e91e63;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        /* Estilo para o texto do convite */
-        .invitation-text {
-            font-size: 24px;
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        /* Botão de aceite */
-        .button {
-            background-color: #e91e63;
-            color: white;
-            padding: 15px 30px;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #c2185b;
-        }
-
-        /* Segunda parte do convite ("Vale Tarde") */
-        #vale-tarde {
-            display: none; /* Inicialmente escondido */
-            background-color: #fff;
-            color: #d81b60;
-            padding: 30px;
-            width: 80%;
-            max-width: 900px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin-top: 20px;
-            opacity: 0;
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Imagem da parte "Vale Tarde" */
-        .image-container {
-            margin-top: 20px;
-        }
-
-        .image-container img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 15px;
-            border: 5px solid #f8bbd0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Responsividade para telas pequenas */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .invitation-text {
-                font-size: 20px;
-            }
-
-            .button {
-                font-size: 16px;
-                padding: 12px 24px;
-            }
-
-            /* Ajustando a imagem para telas pequenas */
-            .image-container img {
-                max-width: 300px;
-                border-radius: 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .invitation-text {
-                font-size: 18px;
-            }
-
-            .button {
-                font-size: 14px;
-                padding: 10px 20px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convite Especial</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #ffe4ec, #fff0f5);
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        color: #b30059;
+        overflow-x: hidden;
+    }
+    h1 {
+        margin-top: 50px;
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        padding: 0 10px;
+    }
+    p {
+        font-size: clamp(1rem, 3vw, 1.2rem);
+        margin: 20px 0;
+        padding: 0 10px;
+    }
+    .botao {
+        padding: 12px 25px;
+        font-size: clamp(1rem, 3vw, 1.2rem);
+        background: #ff66a3;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .botao:hover {
+        background: #e05590;
+    }
+    #flores {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 50px;
+    }
+    .flor {
+        font-size: clamp(1.8rem, 5vw, 2rem);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: flutuar 3s infinite ease-in-out;
+    }
+    @keyframes flutuar {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    #mensagemFinal {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+    #textoFinal {
+        font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+        white-space: pre-wrap;
+        min-height: 60px;
+    }
+</style>
 </head>
 <body>
-    <!-- Parte inicial do convite -->
-    <div class="content">
-        <h1>Convite Especial &#9829;</h1>
-        <p class="invitation-text">Olá meu amor &#x2764;,</p>
-        <p class="invitation-text">Tenho algo muito especial para te propor...</p>
-        <p class="invitation-text">Que tal uma tarde romântica? Só nós dois, em um lugar especial. &#9825;</p>
-        <p class="invitation-text">Você aceita esse convite? &#9829;</p>
-        
-        <!-- Botão que exibe a segunda parte do convite -->
-        <button class="button" onclick="showValeTarde()">Clique aqui para aceitar! &#10084;</button>
-    </div>
 
-    <!-- Parte 2 do convite: "Vale Tarde" -->
-    <div id="vale-tarde">
-        <h1>Você Ganhou um Vale Tarde! &#9829;</h1>
-        <p class="invitation-text">Você tem direito a uma tarde repleta de carinho e romance, com momentos que você sempre quis viver... &#x2764;</p>
-        <p class="invitation-text">De carinhos e beijos até o prazer de explorar tudo o que nossa conexão pode nos proporcionar. &#9825;</p>
-        <p class="invitation-text">Esta tarde será toda sua... Você só precisa dizer o que deseja! &#10084;</p>
-        
-        <p class="invitation-text">Só falta você assinar o nosso contrato de prazer e amor. Estamos prontos para começar! &#9829;</p>
+    <h1>Tenho um convite especial pra você ❤️</h1>
+    <p>Quer sair comigo para um encontro inesquecível?</p>
+    <button class="botao" onclick="aceitar()">SIM</button>
 
-        <!-- Imagem da parte "Vale Tarde" -->
-        <div class="image-container">
-            <img src="https://i.pinimg.com/736x/43/57/38/4357380aaf2af49b0d7cc8fe54f1fbf9.jpg" alt="Imagem romântica">
+    <div id="mensagemFinal">
+        <h1 id="textoFinal"></h1>
+        <div id="flores">
+            <div class="flor">🌸</div>
+            <div class="flor">🌷</div>
+            <div class="flor">🌼</div>
+            <div class="flor">🌹</div>
         </div>
     </div>
 
-    <script>
-        /**
-         * Função para exibir a segunda parte do convite e rolar a página suavemente
-         */
-        function showValeTarde() {
-            const valeTarde = document.getElementById("vale-tarde");
+<script>
+    function aceitar() {
+        const mensagem = "💖 Agora você tem um encontro marcado comigo 💖";
+        const textoFinal = document.getElementById("textoFinal");
+        textoFinal.innerText = "";
 
-            // Exibir o conteúdo e aplicar animação de fade-in
-            valeTarde.style.display = "block";
+        // Rola suavemente para baixo
+        document.getElementById("mensagemFinal").scrollIntoView({ behavior: 'smooth' });
 
-            // Rolar suavemente para a seção
-            valeTarde.scrollIntoView({ behavior: "smooth" });
+        // Efeito de digitação do texto
+        let i = 0;
+        function digitar() {
+            if (i < mensagem.length) {
+                textoFinal.innerText += mensagem.charAt(i);
+                i++;
+                setTimeout(digitar, 60);
+            } else {
+                // Após texto ser digitado, aparecem as flores
+                const flores = document.querySelectorAll(".flor");
+                flores.forEach((flor, index) => {
+                    setTimeout(() => {
+                        flor.style.transition = "opacity 1s ease, transform 1s ease";
+                        flor.style.opacity = "1";
+                        flor.style.transform = "translateY(0)";
+                    }, index * 700);
+                });
+            }
         }
-    </script>
+        setTimeout(digitar, 500);
+    }
+</script>
+
 </body>
 </html>
